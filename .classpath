@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="javaosc.jar"/>
+	<classpathentry kind="lib" path="lusidOSCJava.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Asmaa/Documents/research/ImpairedVesionTrackmate/lib/cmu_time_awb.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Asmaa/Documents/research/ImpairedVesionTrackmate/lib/cmu_us_kal.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Asmaa/Documents/research/ImpairedVesionTrackmate/lib/cmudict04.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Asmaa/Documents/research/ImpairedVesionTrackmate/lib/cmulex.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Asmaa/Documents/research/ImpairedVesionTrackmate/lib/cmutimelex.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Asmaa/Documents/research/ImpairedVesionTrackmate/lib/en_us.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Asmaa/Documents/research/ImpairedVesionTrackmate/lib/freetts.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Asmaa/Documents/research/ImpairedVesionTrackmate/lib/freetts-jsapi10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Asmaa/Documents/research/ImpairedVesionTrackmate/lib/jsapi.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Asmaa/Documents/research/ImpairedVesionTrackmate/lib/mbrola.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
