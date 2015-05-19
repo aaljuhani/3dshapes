@@ -21,8 +21,8 @@ public class Shape {
 	public Shape(){
 		System.out.println("we are in shape");
 		//for test using simulator
-		this.shapeList.add(new Shape("0xA5A", "Cube", "This is a cube" , "aud/cube.au"));
-		this.shapeList.add(new Shape("0xE35", "Square Pyramid", "This is a Square Pyramid", "aud/sphere.au"));
+		this.shapeList.add(new Shape("0xE55", "Cube", "This is a cube" , "aud/cube.au"));
+		this.shapeList.add(new Shape("0xF83", "Square Pyramid", "This is a Square Pyramid", "aud/sphere.au"));
 		
 		
 		this.shapeList.add(new Shape("0x47623678BC1A", "Cube", "This is a cube" , "aud/cube.au"));

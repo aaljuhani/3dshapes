@@ -2,21 +2,14 @@ package main;
 import java.awt.*;
 import javax.swing.JFrame;
 
-public class Game {
+public class Game  {
 	
 	static boolean isRunning;
 	int x = 5;
+	//LusidOSCJavaApp lusidOSC = new LusidOSCJavaApp(); 
 	
 	
-	public static void main(String[] args){
-		System.out.println("I am in Game");
-		Game g = new Game();
-		g.run();
-		System.exit(0);
-		
 	
-		
-	}
 	/** 
      * This method starts the game and runs it in a loop 
      */ 
@@ -36,7 +29,9 @@ public class Game {
      */ 
     public void initialize() 
     { 
-    	
+    	new Shape();
+		new Task();
+		new Player(); 
 		
 		//play audio welcom
     } 
@@ -47,7 +42,7 @@ public class Game {
      */ 
     public void update() 
     { 
-        
+    
     } 
     
     /** 
