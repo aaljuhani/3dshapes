@@ -1,5 +1,6 @@
 package main;
 import java.util.ArrayList;
+import java.util.Random;
 import java.io.*;
 
 import sun.audio.*;
@@ -21,14 +22,14 @@ public class Shape {
 	public Shape(){
 		System.out.println("we are in shape");
 		//for test using simulator
-		this.shapeList.add(new Shape("0xE55", "Cube", "This is a cube" , "aud/cube.au"));
-		this.shapeList.add(new Shape("0xF83", "Square Pyramid", "This is a Square Pyramid", "aud/sphere.au"));
+		/*shapeList.add(new Shape("0x51D", "Cube", "This is a cube" , "aud/cube.au"));
+		shapeList.add(new Shape("0x630", "Square Pyramid", "This is a Square Pyramid", "aud/sphere.au"));*/
 		
 		
-		this.shapeList.add(new Shape("0x47623678BC1A", "Cube", "This is a cube" , "aud/cube.au"));
-		this.shapeList.add(new Shape("0x94B30930BBB2", "Square Pyramid", "This is a Square Pyramid", "aud/sphere.au"));
-		this.shapeList.add(new Shape("0x52C826AACF73", "HEXAGONAL PRISM", "This is a HEXAGONAL PRISM", "aud/sphere.au"));
-		this.shapeList.add(new Shape("0x9581B8918AFE", "Octahedron", "This is an Octahedron", "aud/sphere.au"));
+		shapeList.add(new Shape("0x47623678BC1A", "Cube", "This is a cube" , "aud/cube.au"));
+		shapeList.add(new Shape("0x94B30930BBB2", "Square Pyramid", "This is a Square Pyramid", "aud/sphere.au"));
+		shapeList.add(new Shape("0x52C826AACF73", "HEXAGONAL PRISM", "This is a HEXAGONAL PRISM", "aud/sphere.au"));
+		shapeList.add(new Shape("0x9581B8918AFE", "Octahedron", "This is an Octahedron", "aud/sphere.au"));
 	}
 	
 	public Shape(String id, String name, String descreption, String aud){
@@ -48,7 +49,7 @@ public class Shape {
 		
 	}
 
-	public static String getName(String id) {
+	public String getName(String id) {
 		// TODO Auto-generated method stub
 		for (Shape s: shapeList){
 			if (s.uId.equals(id)){
@@ -61,8 +62,16 @@ public class Shape {
 	
 		
 	}
+	
+	public String getName(){
+		return this.sname;
+	}
+	
+	public String getUID(){
+		return this.uId;
+	}
 
-	public static String getDesc(String id) {
+	public String getDesc(String id) {
 		// TODO Auto-generated method stub
 		for (Shape s: shapeList){
 			if (s.uId.equals(id))
@@ -71,7 +80,7 @@ public class Shape {
 		return null;
 	}
 	
-	public static void playAudio(String audFile){
+	public void playAudio(String audFile){
 		InputStream in = null;
 		 AudioStream audioStream = null;
 					//open the sound file as a Java input Stream
@@ -96,6 +105,11 @@ public class Shape {
 				
 				
 			}
+
+	public Shape getRandomShape() {
+		//getting random shape object from shapeList Array
+		return shapeList.get(new Random().nextInt(shapeList.size()));
+	}
 				
 		
 

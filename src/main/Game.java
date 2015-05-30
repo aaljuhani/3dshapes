@@ -30,7 +30,7 @@ public class Game  {
     public void initialize() 
     { 
     	new Shape();
-		new Task();
+		//new Task();
 		new Player(); 
 		
 		//play audio welcom
