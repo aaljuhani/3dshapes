@@ -22,14 +22,15 @@ public class Shape {
 	public Shape(){
 		System.out.println("we are in shape");
 		//for test using simulator
-		/*shapeList.add(new Shape("0x51D", "Cube", "This is a cube" , "aud/cube.au"));
-		shapeList.add(new Shape("0x630", "Square Pyramid", "This is a Square Pyramid", "aud/sphere.au"));*/
+		/*shapeList.add(new Shape("0x2F3", "Cube", "This is a cube" , "aud/cube.au"));
+		shapeList.add(new Shape("0xAF8", "Square Pyramid", "This is a Square Pyramid", "aud/sphere.au"));*/
 		
 		
-		shapeList.add(new Shape("0x47623678BC1A", "Cube", "This is a cube" , "aud/cube.au"));
-		shapeList.add(new Shape("0x94B30930BBB2", "Square Pyramid", "This is a Square Pyramid", "aud/sphere.au"));
-		shapeList.add(new Shape("0x52C826AACF73", "HEXAGONAL PRISM", "This is a HEXAGONAL PRISM", "aud/sphere.au"));
-		shapeList.add(new Shape("0x9581B8918AFE", "Octahedron", "This is an Octahedron", "aud/sphere.au"));
+		shapeList.add(new Shape("0x111111", "Cube", "This is a cube" , "aud/cube.au"));
+		shapeList.add(new Shape("0x222222", "Traiangle", "This is a Square Pyramid", "aud/sphere.au"));
+		shapeList.add(new Shape("0x333333", "PRISM", "This is a HEXAGONAL PRISM", "aud/sphere.au"));
+		//rshapeList.add(new Shape("0x9581B8918AFE", "Octahedron", "This is an Octahedron", "aud/sphere.au"));
+		
 	}
 	
 	public Shape(String id, String name, String descreption, String aud){
@@ -42,7 +43,7 @@ public class Shape {
 	
 	public static boolean isShape(String id){
 		for (Shape s: shapeList){
-			if (s.uId.equals(id))
+			if (s.uId.startsWith(id))
 				return true;
 		}
 		return false;
@@ -52,7 +53,7 @@ public class Shape {
 	public String getName(String id) {
 		// TODO Auto-generated method stub
 		for (Shape s: shapeList){
-			if (s.uId.equals(id)){
+			if (id.startsWith(s.uId)){
 				playAudio(s.audio);
 				return s.sname;
 			}
@@ -74,7 +75,7 @@ public class Shape {
 	public String getDesc(String id) {
 		// TODO Auto-generated method stub
 		for (Shape s: shapeList){
-			if (s.uId.equals(id))
+			if (id.startsWith(s.uId))
 				return s.desc;
 		}
 		return null;

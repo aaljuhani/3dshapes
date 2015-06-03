@@ -13,12 +13,14 @@ public class Player {
 	private int correctAnswer;
 	private int totalAnswer;
 	private int wrongAnswer;
+	private int chances;
 	
 	public Player(){
 		this.level = 1;
-		this.score = 1;
+		this.score = 0;
 		this.correctAnswer = 1;
 		this.wrongAnswer = 1;
+		this.chances = 1;
 		this.totalAnswer = 0;
 		
 		
@@ -31,25 +33,29 @@ public class Player {
 	public void answerCorrect(){
 		this.correctAnswer++;
 		this.totalAnswer++;
+		this.score = this.score + 1.0/this.chances;
+		this.chances = 1; //reset chances
 		this.calculateScore();
 		}
 	
 	public void answerWrong(){
 		this.wrongAnswer++;
-		this.totalAnswer++;
+		this.totalAnswer++; 
+		this.chances++;
 		this.calculateScore();
 	}
 	
 	public void calculateScore(){
-		this.score = this.correctAnswer * this.score / this.totalAnswer;
+		//this.score = this.correctAnswer * this.score / this.totalAnswer;  // GPA way didn't work prorperly
+		
 		System.out.println("score "+ this.score);
 		System.out.println("Total q :"+ this.totalAnswer);
-		if(this.totalAnswer > 5)
-			this.incLevel();
+		
+		this.setLevel(((int)this.score/10 == 0)? 1:(int)this.score/10 );
 	}
 	
-	public void incLevel(){
-		this.level += 1;
+	public void setLevel(int l){
+		this.level = l;
 	}
 
 }

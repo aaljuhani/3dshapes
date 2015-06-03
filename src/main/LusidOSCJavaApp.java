@@ -50,7 +50,7 @@ public class LusidOSCJavaApp {
 			//the first X min is for exploring 
 			/*while ((System.currentTimeMillis()-startTime)< 1*60*1000){
 				 
-			}*/
+			}*/ 
 			
 			//start Task level
 			isTask = true;
@@ -135,7 +135,7 @@ public class LusidOSCJavaApp {
 	public void checkAnswer(){
 		switch(player.getlevel()){
 		case 1:
-			if(getAddedObj().getUniqueID().equals(taskShape.getUID())){
+			if(getAddedObj().getUniqueID().startsWith(taskShape.getUID())){
 				correctAnswer();
 			}
 			else{
@@ -145,7 +145,7 @@ public class LusidOSCJavaApp {
 		case 2:
 			// check if the first object is correct
 			if(lusidArr.size() == 1){
-				if(getAddedObj().getUniqueID().equals(taskShape.getUID())){
+				if(getAddedObj().getUniqueID().startsWith(taskShape.getUID())){
 				// if the first object correct, ask for the other one
 					//add the other one
 					System.out.println("Add the other one");
@@ -153,14 +153,13 @@ public class LusidOSCJavaApp {
 					wrongAnswer();
 				}
 			} else {
-				for (LusidObject lusidobj: lusidArr){
-					if (lusidobj.getUniqueID().equals(taskShape.getUID())){
-						
-					} else {
-						wrongAnswer();
-					}
-			}
-				correctAnswer();
+				LusidObject lastObject = getAddedObj();
+				if(lastObject.getUniqueID().startsWith(taskShape.getUID())){
+					correctAnswer();
+				}
+				else{
+					wrongAnswer();
+				}
 			}
 			break;
 		}
