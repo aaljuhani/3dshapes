@@ -107,10 +107,23 @@ public class Shape {
 				
 			}
 
-	public Shape getRandomShape() {
+	public Shape[] getRandomShapes() {
+		System.out.println("random shapes");
 		//getting random shape object from shapeList Array
-		return shapeList.get(new Random().nextInt(shapeList.size()));
+		Shape[] twoShapes = new Shape[2];
+		int listSize = shapeList.size();
+		int num1 = new Random().nextInt(listSize);
+		int num2;
+		do{
+			num2 = new Random().nextInt(listSize);
+		} while (num1 == num2);
+		
+		twoShapes[0] = shapeList.get(num1);
+		twoShapes[1] = shapeList.get(num2);
+		
+		return twoShapes;
 	}
+	
 				
 		
 

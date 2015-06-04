@@ -27,7 +27,7 @@ public class LusidOSCJavaApp {
 	private volatile boolean isAnswered = false;
 	
 	//an object to hold the answer for the current Task
-	Shape taskShape;
+	Shape[] taskShape;
 	
 	
 	ArrayList<LusidObject> lusidArr = new ArrayList<LusidObject>();
@@ -56,11 +56,17 @@ public class LusidOSCJavaApp {
 			isTask = true;
 			
 			while(isTask){
-				//ask a question based on player level
-				taskShape = shape.getRandomShape();
-				task.getTask(player.getlevel(),taskShape );
-				// reset answer flag
-				isAnswered = false;
+				//check level
+			
+					//ask a question based on player level
+					taskShape = shape.getRandomShapes();
+					
+					System.out.println(taskShape[0]);
+					task.getTask(player.getlevel(),taskShape );
+					// reset answer flag
+					isAnswered = false;
+					
+				
 				
 				while(!isAnswered){	
 					try {
@@ -135,7 +141,7 @@ public class LusidOSCJavaApp {
 	public void checkAnswer(){
 		switch(player.getlevel()){
 		case 1:
-			if(getAddedObj().getUniqueID().startsWith(taskShape.getUID())){
+			if(getAddedObj().getUniqueID().startsWith(taskShape[0].getUID())){
 				correctAnswer();
 			}
 			else{
@@ -145,7 +151,7 @@ public class LusidOSCJavaApp {
 		case 2:
 			// check if the first object is correct
 			if(lusidArr.size() == 1){
-				if(getAddedObj().getUniqueID().startsWith(taskShape.getUID())){
+				if(getAddedObj().getUniqueID().startsWith(taskShape[0].getUID())){
 				// if the first object correct, ask for the other one
 					//add the other one
 					System.out.println("Add the other one");
@@ -154,7 +160,7 @@ public class LusidOSCJavaApp {
 				}
 			} else {
 				LusidObject lastObject = getAddedObj();
-				if(lastObject.getUniqueID().startsWith(taskShape.getUID())){
+				if(lastObject.getUniqueID().startsWith(taskShape[0].getUID())){
 					correctAnswer();
 				}
 				else{
@@ -162,6 +168,27 @@ public class LusidOSCJavaApp {
 				}
 			}
 			break;
+		case 3:
+			// check if the first object is correct
+						if(lusidArr.size() == 1){
+							if(getAddedObj().getUniqueID().startsWith(taskShape[0].getUID())){
+							// if the first object correct, ask for the other one
+								//add the other one
+								System.out.println("Add the other shape");
+							} else {
+								wrongAnswer();
+							}
+						} else {
+							LusidObject lastObject = getAddedObj();
+							if(lastObject.getUniqueID().startsWith(taskShape[1].getUID())){
+								correctAnswer();
+							}
+							else{
+								wrongAnswer();
+							}
+						}
+						break;
+			
 		}
 		
 	}
