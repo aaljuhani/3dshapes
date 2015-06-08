@@ -16,7 +16,7 @@ public class Player {
 	private int chances;
 	
 	public Player(){
-		this.level = 1;
+		this.level = 3;
 		this.score = 0;
 		this.correctAnswer = 1;
 		this.wrongAnswer = 1;
@@ -51,7 +51,7 @@ public class Player {
 		System.out.println("score "+ this.score);
 		System.out.println("Total q :"+ this.totalAnswer);
 		
-		this.setLevel(((int)this.score/10 == 0)? 1:(int)this.score/10 );
+		//this.setLevel(((int)this.score/10 == 0)? 1:(int)this.score/10 );
 	}
 	
 	public void setLevel(int l){
