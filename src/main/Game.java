@@ -1,5 +1,6 @@
 package main;
 import java.awt.*;
+
 import javax.swing.JFrame;
 
 public class Game  {
@@ -7,7 +8,12 @@ public class Game  {
 	static boolean isRunning;
 	int x = 5;
 	//LusidOSCJavaApp lusidOSC = new LusidOSCJavaApp(); 
-	
+	public static void main(String[] args) {
+		// start things up outside the static main() method.
+		new LusidOSCJavaApp();
+				
+	}
+		
 	
 	
 	/** 
@@ -17,7 +23,7 @@ public class Game  {
     { 
     	initialize();
     	
-    	while(isRunning){
+    	while(isRunning){ 
     		update();
     		render();
     	}
@@ -30,10 +36,10 @@ public class Game  {
     public void initialize() 
     { 
     	new Shape();
-		//new Task();
+		new Task();
 		new Player(); 
 		
-		//play audio welcom
+		//play audio welcome
     } 
     
     /** 

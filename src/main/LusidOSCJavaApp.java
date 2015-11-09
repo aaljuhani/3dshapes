@@ -18,6 +18,8 @@ public class LusidOSCJavaApp {
 	Task task = new Task();
 	Player player =	new Player(); 
 	
+	View view = new View();
+	
 	
 	//setup env
 	int width = 8;
@@ -63,9 +65,9 @@ public class LusidOSCJavaApp {
 		
 		while(isRunning){
 			//the first X min is for exploring 
-			/*while ((System.currentTimeMillis()-startTime)< 1*60*1000){
+			while ((System.currentTimeMillis()-startTime)< 1*60*1000){
 				 
-			}*/ 
+			}
 			
 			//start Task level
 			isTask = true;
