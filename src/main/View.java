@@ -24,13 +24,20 @@ import java.awt.event.ActionEvent;
 public class View {
 
 	private JFrame frame;
+	// a flag to distinguish between exploring and tasks level
+	private static boolean isTask;
+	// a flag for running the game
+	private static boolean isRunning;
 	
-
-
-	/**
-	 * Create the application.
-	 */
-	public View() {
+	// public labels to be modified 
+	public static JLabel LevelText;
+	public static JLabel ScoreText;
+	public static JLabel lblTask;
+	
+	
+	
+	
+	public static void main(String[]args){
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -42,9 +49,21 @@ public class View {
 				}
 			}
 		});
+		setisRunning(true);
+		new LusidOSCJavaApp();
+		
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public View() {
+		
 		
 		initialize();
-		
+		setTask("Exploring different 3D Shapes");
+		setLevel("Exploring");
+		setScore("N/A");
 	}
 
 	/**
@@ -72,17 +91,23 @@ public class View {
 		lblLevel.setForeground(Color.DARK_GRAY);
 		lblLevel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JLabel LevelText = new JLabel("1");
+		LevelText = new JLabel("1");
 		LevelText.setFont(new Font("Tahoma", Font.BOLD, 30));
 		
-		JLabel ScoreText = new JLabel("0");
+		ScoreText = new JLabel("0");
 		ScoreText.setFont(new Font("Tahoma", Font.BOLD, 30));
 		
 		JButton btnStart = new JButton("Start");
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("start");
+				setisTask(true);
+				setTask("Task");
+				setLevel("1");
+				setScore("0");
 				
+				//reset 
+				reset();
 			}
 		});
 		btnStart.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -90,12 +115,13 @@ public class View {
 		JButton btnDone = new JButton("Done");
 		btnDone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				setisRunning(false);
 				
 			}
 		});
 		btnDone.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		
-		JLabel lblTask = new JLabel("Task:");
+		lblTask = new JLabel("Task:");
 		lblTask.setForeground(new Color(0, 51, 51));
 		lblTask.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		
@@ -103,7 +129,11 @@ public class View {
 		btnExplore.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Explore");
-				
+				setisTask(false);
+				setTask("Exploring different 3D Shapes");
+				setLevel("Exploring");
+				setScore("N/A");
+								
 			}
 		});
 		btnExplore.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -161,4 +191,37 @@ public class View {
 		);
 		panel.setLayout(gl_panel);
 	}
+
+	public static boolean getisTask(){
+		return isTask;
+	}
+	
+	public static boolean getisRunning(){
+		return isRunning;
+	}
+	
+	public static void setisTask(boolean flag){
+		isTask = flag;
+	}
+	
+	public static void setisRunning(boolean flag){
+		isRunning = flag;
+	}
+	
+	public static void setTask(String txt){
+		lblTask.setText(txt);
+	}
+	
+	public static void   setLevel(String txt){
+		LevelText.setText(txt);
+	}
+	
+	public static void setScore(String txt){
+		ScoreText.setText(txt);
+	}
+	
+	public static void reset(){
+		
+	}
 }
+

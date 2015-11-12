@@ -4,6 +4,7 @@ import lusidOSC.LusidClient;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 import lusidOSC.LusidObject;
 
@@ -17,19 +18,15 @@ public class LusidOSCJavaApp {
 	Shape shape = new Shape();
 	Task task = new Task();
 	Player player =	new Player(); 
-	
-	View view = new View();
+
 	
 	
 	//setup env
 	int width = 8;
 	int height = 6;
 	
-	// a flag for running the game
-	boolean isRunning = true;
 	
-	// a flag to distinguish between exploring and tasks level
-	boolean isTask = false;
+	//boolean isTask = false;
 	
 	// advance level has isSubTask
 	boolean isSubTask = false;
@@ -48,31 +45,16 @@ public class LusidOSCJavaApp {
 	
 	double oldDist ;
 
-	
-	public static void main(String[] args) {
-		// start things up outside the static main() method.
-		new LusidOSCJavaApp();
-				
-	}
-		
 		
 	public LusidOSCJavaApp(){
 		// create the client, on port 3333.
 		lusidClient = new LusidClient(this, 3333);
-		
-		// after X min the exploring level will end
-		long startTime = System.currentTimeMillis();
-		
-		while(isRunning){
-			//the first X min is for exploring 
-			while ((System.currentTimeMillis()-startTime)< 1*60*1000){
-				 
-			}
+		System.out.println("lusid osc java app ");
+		System.out.println(View.getisRunning());
+		while(View.getisRunning()){
+			//System.out.println("is running ");
 			
-			//start Task level
-			isTask = true;
-			
-			while(isTask){
+			while(View.getisTask()){
 				//check level
 				System.out.println("is task");
 			
@@ -118,12 +100,13 @@ public class LusidOSCJavaApp {
 	// -------------------------------------------------------------------
 	// called when an object is added to the scene
 	public void addLusidObject(LusidObject lObj) {
+		System.out.println("add lusid object");
 		
 		//when object is added we add an instance of the object to lusidObj arraylist
 		lusidArr.add(lObj);
 		
 		// if we are in exploring level
-		if(!isTask){
+		if(!View.getisTask()){
 			try{
 				 System.out.println(shape.getName(lObj.getUniqueID()));
 				 System.out.println(shape.getDesc(lObj.getUniqueID()));
@@ -276,7 +259,9 @@ public class LusidOSCJavaApp {
 	
 	public void correctAnswer(){
 		System.out.println("thats correct");
+		//View.setTask("CORRECT");
 		//give positive feedback
+		Task.playAudio("correct-"+new Random().nextInt(1));
 		
 		//increment score
 		player.answerCorrect();
@@ -290,7 +275,9 @@ public class LusidOSCJavaApp {
 	
 	public void wrongAnswer(){
 		System.out.println("Try again");
+		//View.setTask("SORRY .. TRY AGAIN");
 		//Try again audio
+		//Task.playAudio("tryAgain");
 		
 		player.answerWrong();
 	}

@@ -49,13 +49,18 @@ public class Player {
 		//this.score = this.correctAnswer * this.score / this.totalAnswer;  // GPA way didn't work prorperly
 		
 		System.out.println("score "+ this.score);
+		View.setScore(""+Math.floor(this.score));
 		System.out.println("Total q :"+ this.totalAnswer);
 		
 		this.setLevel(((int)this.score/10 == 0)? 1:(int)this.score/10 );
+		
 	}
 	
 	public void setLevel(int l){
 		this.level = l;
+		View.setLevel(""+l);
 	}
+	
 
+	
 }

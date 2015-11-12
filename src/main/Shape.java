@@ -18,6 +18,7 @@ public class Shape {
 	private String sname;
 	private String desc;
 	private String audio;
+	//private int prevNum = -1; 
 	
 	public Shape(){
 		System.out.println("we are in shape");
@@ -54,7 +55,7 @@ public class Shape {
 		// TODO Auto-generated method stub
 		for (Shape s: shapeList){
 			if (id.startsWith(s.uId)){
-				playAudio(s.audio);
+				//playAudio(s.audio);
 				return s.sname;
 			}
 				
@@ -81,31 +82,7 @@ public class Shape {
 		return null;
 	}
 	
-	public void playAudio(String audFile){
-		InputStream in = null;
-		 AudioStream audioStream = null;
-					//open the sound file as a Java input Stream
-					
-					try {
-						in = new FileInputStream(audFile);
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
-					// create an audiostream from the inputstream
-				   	try {
-						audioStream = new AudioStream(in);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				 
-				    // play the audio clip with the audioplayer class
-				    AudioPlayer.player.start(audioStream);
-				
-				
-			}
+
 
 	public Shape[] getRandomShapes() {
 		System.out.println("random shapes");
