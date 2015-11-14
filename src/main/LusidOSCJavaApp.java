@@ -108,8 +108,10 @@ public class LusidOSCJavaApp {
 		// if we are in exploring level
 		if(!View.getisTask()){
 			try{
-				 System.out.println(shape.getName(lObj.getUniqueID()));
+				String name = shape.getName(lObj.getUniqueID());
+				 System.out.println(name);
 				 System.out.println(shape.getDesc(lObj.getUniqueID()));
+				 Task.playAudio(name);
 			}
 			catch(Error e)
 			{
@@ -277,10 +279,12 @@ public class LusidOSCJavaApp {
 		System.out.println("Try again");
 		//View.setTask("SORRY .. TRY AGAIN");
 		//Try again audio
-		//Task.playAudio("tryAgain");
+		Task.playAudio("tryAgain");
 		
 		player.answerWrong();
 	}
+	
+
 
 	
 	

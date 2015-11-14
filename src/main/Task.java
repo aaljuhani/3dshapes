@@ -34,10 +34,7 @@ public class Task {
 	//game state before subTask
 	ArrayList<LusidObject> currlusidArr = new ArrayList<LusidObject>();
 	
-	//Audio variables
-	public static InputStream in ;
-	public static AudioStream audioStream ;
-	public boolean playCompleted;
+	
 	
 	
 	
@@ -111,12 +108,16 @@ public class Task {
 	}
 	
 	public static void playAudio(String audFile){
-		System.out.println(AudioPlayer.player.isAlive());
+		if (audFile == null)
+			return;
+		//Audio variables
+		 InputStream in = null ;
+		 AudioStream audioStream = null ;
+		 boolean playCompleted;
 
 		//open the sound file as a Java input Stream
-
 		try {
-		in = new FileInputStream("aud/"+audFile.toLowerCase()+".au");
+		 in = new FileInputStream("aud/"+audFile.toLowerCase()+".au");
 		} catch (FileNotFoundException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -139,6 +140,9 @@ public class Task {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		//AudioPlayer.player.stop(audioStream);
+		//AudioPlayer.player.destroy();
 	
 		}
 	

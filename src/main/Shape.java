@@ -27,9 +27,9 @@ public class Shape {
 		shapeList.add(new Shape("0xAF8", "Square Pyramid", "This is a Square Pyramid", "aud/sphere.au"));*/
 		
 		
-		shapeList.add(new Shape("0x111111", "Cube", "This is a cube" , "aud/cube.au"));
+		shapeList.add(new Shape("0x111111", "Square", "This is a cube" , "aud/cube.au"));
 		shapeList.add(new Shape("0x222222", "Traiangle", "This is a Square Pyramid", "aud/sphere.au"));
-		shapeList.add(new Shape("0x333333", "PRISM", "This is a HEXAGONAL PRISM", "aud/sphere.au"));
+		shapeList.add(new Shape("0x333333", "Rhombus", "This is a HEXAGONAL PRISM", "aud/sphere.au"));
 		//rshapeList.add(new Shape("0x9581B8918AFE", "Octahedron", "This is an Octahedron", "aud/sphere.au"));
 		
 	}
