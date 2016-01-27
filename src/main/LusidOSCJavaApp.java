@@ -60,7 +60,7 @@ public class LusidOSCJavaApp {
 			
 				if(!isSubTask){
 					//ask a question based on player level
-					taskShape = shape.getRandomShapes();
+					taskShape = shape.getRandomShapes(player.getlevel());
 					
 					System.out.println(taskShape[0]);
 					task.getTask(player.getlevel(),taskShape );
@@ -111,7 +111,8 @@ public class LusidOSCJavaApp {
 				String name = shape.getName(lObj.getUniqueID());
 				 System.out.println(name);
 				 System.out.println(shape.getDesc(lObj.getUniqueID()));
-				 Task.playAudio(name);
+				 String audio = shape.getAud(lObj.getUniqueID());
+				 Task.playAudio(audio);
 			}
 			catch(Error e)
 			{
@@ -225,7 +226,7 @@ public class LusidOSCJavaApp {
 							LusidObject lastObject = getAddedObj();
 							if(lastObject.getUniqueID().startsWith(taskShape[1].getUID())){
 								//set isSubTask
-								isSubTask = true;
+								//isSubTask = true;
 								//save current state
 								oldDist = calculateDistance(lusidArr);
 								System.out.println("DISTENCE " +calculateDistance(lusidArr));
